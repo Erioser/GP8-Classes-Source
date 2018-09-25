@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <form  action="http://gp8.api.com/api/register" method="get">
+        
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input required autofocus type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="email">邮箱</label>
+            <input required type="email" name="email" Multiple id="email">
+        </div>
+        <div class="form-group">
+            <label >url</label>
+            <input type="url">
+        </div>
+        <div class="form-group">
+            <label >search</label>
+            <input type="search">
+        </div>
+        <div class="form-group">
+                <label >上传</label>
+                <input type="file" multiple>
+            </div>
+        <div>
+            <label for="">more</label>
+            <input type="number" min="10" max="18" step="2">
+            <input type="range">
+            <input type="color">
+            <input type="time">
+            <input type="month">
+            <input type="week">
+            <input type="datetime-local">
+        </div>
+
+        
+
+        <div class="form-group">
+            <input type="reset" value="重置">
+            <input type="submit" value="提交">
+        </div>
+    
+    </form>
+
+    <hr>
+    <form action="" oninput="x.value=parseInt(a.value)+parseInt(b.value)">       
+        0<input id="a" type="range" min="0" max="100">
+        100+ <input id="b" type="text" value="50">
+        = <output name="x" for="a b"></output>   
+    </form>
+
+    <input type="text" list="car">
+    <datalist id="car">
+        <option value="bmw">BMW</option>
+        <option value="benz">BENZ</option>
+        <option value="audi">AUDI</option>
+    </datalist>
+
+    <hr>
+    <form id="form">
+        <input type="text" id="abc">
+        <button type="submit">提交</button>
+    </form>
+
+    <div class="odiv"></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        form.onsubmit = function (e) {
+            e.preventDefault(); // 浏览器默认行为阻止
+
+            alert(document.querySelector('#abc').value)
+        }
+
+        let abc = document.querySelector('#abc')
+        let odiv = document.querySelector('.odiv')
+       
+        let lis = document.querySelectorAll('li')
+        console.log(abc, odiv, lis)
+    </script>
+</body>
+</html>

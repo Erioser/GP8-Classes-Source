@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .header {
+        height: 100px; background: skyblue;text-align: center;
+        line-height: 100px;
+    }
+    .footer {
+        height: 60px; background: skyblue;text-align: center;line-height: 60px;
+    }
+
+    .banner {
+        height: 600px; 
+        padding: 20px 0px ;
+    }
+    .banner .banner-content {
+        width: 70%;
+        height: 100%; background: skyblue;
+        float: left;
+    }
+    .banner .nav-list {
+        float: right;
+        width: 25%;
+        margin-left: 5%;
+        height: 100%; background: skyblue;
+    }
+
+</style>
+<body>
+
+    <header class="header">
+        <h1>Hello World</h1>
+    </header>
+    <!-- section 代表网页中一个独立的区域 -->
+    <section class="banner">
+        <!-- 代表一个独立区域里的主体部分 -->
+        <article class="banner-content">
+            <figure>
+                <figcaption>这是一个标题</figcaption>
+                <p>
+                    哈哈哈哈哈哈哈哈
+                </p>
+            </figure>
+        </article>
+        <!-- 辅助article -->
+        <aside class="nav-list">
+            <nav>
+                <ul>
+                    <li>01</li>
+                    <li>02</li>
+                    <li>03</li>
+                </ul>
+            </nav>
+        </aside>
+    </section>
+
+    <footer class="footer">
+        <h5>这是网站的底部....</h5>
+    </footer>
+
+    
+</body>
+</html>

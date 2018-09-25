@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .demo { margin-top: 50px; }
+    .demo:first-of-type {
+        width: 100px; height: 100px;
+        background: pink;
+        box-shadow: 20px 20px 0px blue, 50px 50px 20px #000;
+    }
+
+    .demo:nth-of-type(2) {
+        margin-top: 200px;
+        text-shadow: 10px 10px 3px green;
+    }
+    .demo:nth-of-type(3) {
+        border: 1px solid red;
+        width: 150px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    
+    .demo:nth-of-type(4) {
+        border: 1px solid red;
+        width: 200px;
+        height: 20px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+
+</style>
+<body>
+    
+
+    <div class="demo"></div>
+    <div class="demo">
+        哈哈哈哈哈哈
+    </div>
+
+    <div class="demo">
+        hello, everyone,this is a veryveryveryveryverylonglonglonglong word!
+    </div>
+
+    <div class="demo">
+        属性用来标明是否允许浏览器在单词内进行断句，这是为了防止当一个字符串太长而找不到它的自然断句点时产生溢出现象。
+    </div>
+</body>
+</html>
