@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3-Transiton-Demo-Jalousie</title>
+</head>
+<style>
+    body {
+        background: url(./sources/images/triangles.png) repeat;
+        margin: 0; padding: 0;
+    }
+
+    ul, li { padding: 0; margin: 0; list-style: none; }
+
+    .wrapper { padding: 0px 30px; }
+
+    .jalousie {
+        width: 805px;
+        height: 320px;
+        overflow: hidden;
+        margin: 100px auto;
+        -webkit-box-shadow: 0 0 5px #000;
+    }
+    /* .jalousie__content { overflow: hidden; } */
+    .jalousie__item {
+        width: 160px;
+        border-left: 1px solid #888; 
+        float: left;
+        position: relative;
+        transition: all 0.5s;
+        /* overflow: hidden; */
+    }
+    /* .jalousie__image { width: 100%;} */
+    .jalousie__image img { display: block; }
+    .jalousie__title { 
+        width: 640px;
+        display: block; padding-left: 20px; height: 60px; line-height: 60px;
+        position: absolute; bottom: 0;left: 0;background: rgba(0,0,0,0.3); color: #fff; 
+    }
+
+    .jalousie__content:hover .jalousie__item { width: 40px; }
+    .jalousie__content .jalousie__item:hover { width: 640px; }
+</style>
+<body>
+    <div class="wrapper">  
+        <div class="jalousie">
+            <ul class="jalousie__content">
+                <li class="jalousie__item">
+                    <div class="jalousie__image">
+                        <img src="./sources/images/img1.jpg" alt="">
+                    </div>
+                    <!-- <a class="jalousie__title">Kongfu Panda</a> -->
+                </li>
+                <li class="jalousie__item">
+                    <div class="jalousie__image">
+                        <img src="./sources/images/img2.jpg" alt="">
+                    </div>
+                    <!-- <a class="jalousie__title">Toy Story</a> -->
+                </li>
+                <li class="jalousie__item">
+                    <div class="jalousie__image">
+                        <img src="./sources/images/img3.jpg" alt="">
+                    </div>
+                    <!-- <a class="jalousie__title">Wallet</a> -->
+                </li>
+                <li class="jalousie__item">
+                    <div class="jalousie__image">
+                        <img src="./sources/images/img4.jpg" alt="">
+                    </div>
+                    <!-- <a class="jalousie__title">Up</a> -->
+                </li>
+                <li class="jalousie__item">
+                    <div class="jalousie__image">
+                        <img src="./sources/images/img5.jpg" alt="">
+                    </div>
+                    <!-- <a class="jalousie__title">Cars</a> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transform-Demo-Fan</title>
+
+    <style>
+
+        .fan {
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+    
+        .fan__item {
+            width: 50px;
+            height: 150px;
+            background: red;
+            position: absolute;
+            left: 0;right: 0;
+            margin: 0 auto;
+            transition: all 0.5s;
+            transform-origin: center bottom;
+            opacity: 0;
+        }
+        .fan__item[center] { opacity: 1; }
+    
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="wrapper">
+
+        <div class="fan">
+            <!-- <div class="fan__item"></div> -->
+        </div>
+
+    </div>
+
+
+    <script>
+    
+        (function () {
+            // 扇叶的个数
+            var fan_item_count = 11;
+            
+            //初始化执行
+            init();
+
+            function init() {
+                // 先去处理样式
+                renderFanItemStyle();
+                // 再去加载dom
+                createFanItem();
+
+                // FOUC 回流。。。
+            }
+
+            function createFanItem(params) { // 创建item
+                let _str = '';
+                let _o_fan_content = document.querySelector('.fan');
+                for (let i = 0; i < fan_item_count; i++) {
+                    _str += '<div class="fan__item" '+ (i === Math.floor(fan_item_count / 2) ? 'center': '') +' style = "background:'+ getRandomColor() +';"></div>';               
+                }
+                _o_fan_content.innerHTML = _str;
+
+            }
+
+            // 拼接一个style标签放入到头部
+            function renderFanItemStyle() {
+                let _style = document.createElement('style');
+                let _str = '';
+                let _half = (fan_item_count - 1) / 2
+                let _step = 80 / _half; // 每个扇叶相隔的角度
+                for (let i = 0; i < fan_item_count; i++) {
+                    let deg = (i - _half) * _step; // item需要转动的角度
+                   _str += '.fan:hover .fan__item:nth-of-type('+( i+1 )+') { transform: rotate('+ deg +'deg); opacity: 1; }';
+                }
+                _style.innerHTML = _str;
+                document.querySelector('head').appendChild(_style);
+            }
+
+            // -5 -4 -3 -2 -1 0 1 2 3 4 5
+
+            function getRandomColor() {
+                var r = Math.floor(Math.random() * 256);
+                var g = Math.floor(Math.random() * 256);
+                var b = Math.floor(Math.random() * 256);
+                return "rgb("+r+','+g+','+b+")";//所有方法的拼接都可以用ES6新特性`其他字符串{$变量名}`替换
+            }
+
+        })()
+    
+    </script>
+
+</body>
+</html>

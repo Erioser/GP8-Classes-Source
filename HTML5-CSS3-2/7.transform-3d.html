@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stage {
+            width: 200px; 
+            padding: 50px;
+            border:1px solid #333;
+            margin: 50px auto;
+            /* 摄影机 */
+            perspective: 2000px;
+            /*  */
+            perspective-origin: left top;
+        }
+        .demo {
+            transform-style: preserve-3d;
+            width: 200px; height: 200px;
+            background: red;
+            transition: all 1s;
+        }
+
+        .demo:nth-of-type(1):hover {
+            /* transform: translate3d(0, 0, 300px); */
+            /* transform: translateZ(1900px) rotateY(80deg); */
+            /* transform: skew(10); */
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="stage">
+        <div class="demo">
+            <img width="100%" src="./sources/images/img1.jpg" alt="">
+        </div>
+    </div>
+
+    
+</body>
+</html>

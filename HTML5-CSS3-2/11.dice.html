@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        @keyframes rotate {
+          from { transform: rotateX(0deg) rotateY(0deg) ; }
+          to { transform: rotateX(720deg) rotateY(720deg) ; }
+        }
+
+        .stage {
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            perspective: 2000px;
+            position: relative;
+        }
+
+        .stage .cube {
+            width: 100%; height: 100%; position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg) ;
+            transition: all 0.5s;
+        }
+
+        .rotate {
+          animation: rotate 2s ;
+        }
+
+        
+        
+        .cube .cube__face {
+            transform-style: preserve-3d;
+            width: 400px;
+            height: 400px;
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            top: 0;left: 0;
+            font-size: 100px;
+            text-align: center;line-height: 400px;color: #fff;
+            border:2px solid #fff;
+            border-radius: 30px;
+            transition: all 3s;
+        }
+        .cube .cube__face:nth-of-type(1) {
+          transform: translateZ(200px);
+        }
+        .cube .cube__face:nth-of-type(2) {
+          transform: translateZ(-200px) rotateY(180deg);
+        }
+        .cube .cube__face:nth-of-type(4) {
+          transform: rotateX(-90deg) translateZ(200px);
+        }
+        .cube .cube__face:last-of-type {
+          /* transform: rotateY(90deg) translateZ(200px); */
+          transform: translateX(200px) rotateY(90deg);
+        }
+        .cube .cube__face:nth-of-type(5) {
+          /* transform: rotateY(90deg) translateZ(200px); */
+          transform: rotateY(-90deg) translateZ(200px);
+        }
+        .cube .cube__face:nth-of-type(3) {
+          /* transform: rotateY(90deg) translateZ(200px); */
+          transform: rotateX(90deg) translateZ(200px);
+        }
+        
+        .play { text-align: center; margin-top:  200px; }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="stage">
+        <div class="cube">
+            <div class="cube__face">1</div>
+            <div class="cube__face">6</div>
+            <div class="cube__face">2</div>
+            <div class="cube__face">5</div>
+            <div class="cube__face">3</div>
+            <div class="cube__face">4</div>
+        </div>
+    </div>
+
+    <h3 class="message" style="text-align: center;">  </h3>
+    <h5 class="message--small" style="text-align: center;">  </h5>
+    <p class="play"> 
+      <button class="play__btn">go go go</button> 
+    </p>
+
+    <script>
+      // 可读性  可维护性  可测试性
+      (function () {
+
+        let o_dice = document.querySelector('.cube'); // 骰子
+        let o_play_btn = document.querySelector('.play__btn'); // 游戏按钮
+        let o_message = document.querySelector('.message'); // 提示信息
+        let o_message_small = document.querySelector('.message--small'); // 提示信息
+
+        let message = ''; // 显示的内容
+      
+        // o_play_btn.onclick = function () {
+        //   o_dice.classList.remove('rotate'); // 先把类名去掉
+
+        //   // 神奇的setTimeout 
+        //   setTimeout(() => {
+        //     o_dice.classList.add('rotate'); // 给骰子添加类名让它转
+        //   }, 0);     
+        // };
+
+        o_play_btn.onclick = function () {
+
+          o_dice.classList.add('rotate'); // 给骰子添加类名让它转   
+        };
+        
+        // animationEnd 事件处理函数在动画执行完成后执行 有兼容，需要加前缀
+        o_dice.addEventListener('webkitAnimationEnd', function () {
+          this.classList.remove('rotate');
+
+          // 动画执行完成后，再去让骰子转一个角度
+          rotateDice()
+
+        });
+
+
+        function rotateDice() {
+          // 列举出能转哪几个角度
+          
+          let _results = {
+             1: { x: 0,y: 0 } ,
+             2: { x: -90,y: 0 } ,
+             3: { x: 0,y: 90 } ,
+             4: { x: 0,y: -90 } ,
+             5: { x: 90,y: 0 } ,
+             6: { x: 0,y: 180 } 
+          };
+          // 当前结果
+          let _result = Math.floor(Math.random() * 6) + 1;
+          let { x, y } = _results[_result];
+          
+          // 更改提升信息
+          message = '您此次投掷的结果为:' + _result;
+          // 渲染提示信息
+          renderMessage();
+          
+
+          setTimeout(() => {
+            o_dice.style.transform = 'rotateX(' + x + 'deg) rotateY('+ y +'deg)';
+          }, 0);
+         
+
+        }
+        
+        // 渲染提示信息
+        function renderMessage() {
+          o_message.innerHTML = message;
+          o_message_small.innerHTML = message;
+        }
+
+
+      })()
+    
+    </script>
+</body>
+</html>

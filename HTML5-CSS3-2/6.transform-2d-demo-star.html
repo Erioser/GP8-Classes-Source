@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .star { width: 500px; height: 500px; background: skyblue;  position: relative; overflow: hidden;}
+    .star--border .star__border {
+        border-color: #fff;
+        border-width: 2px;
+        border-style: solid;
+        position: absolute;
+        transition: all 0.5s;
+    }
+    .star--border .star__border--vertical {
+        left: 0; right: 0; 
+        margin:  0 auto;
+        top: 130px;
+        width: 200px; height: 0px;
+        border-top: none; border-bottom: none;
+        
+    }
+    .star--border .star__border--horizontal {
+        width:0px; height: 200px;
+        border-left: none; border-right: none;
+        top: 0; bottom: 0; 
+        margin:  auto 0;
+        left: 130px;
+    }
+
+    .star--border .star:hover .star__border--vertical { height: 240px;}
+    .star--border .star:hover .star__border--horizontal { width: 240px; }
+
+
+    
+    .star--rotate .star__border {
+        width: 300px; height: 180px;
+        border:2px solid #fff;
+        position: relative;
+        top: 30px; left: 30px;
+        transform: rotate(0deg) translate(0px, -300px);
+        transition: all 1s;
+        transform-origin: left top;
+    }
+
+    .star--rotate:hover .star__border {
+        transform: rotate(360deg) translate(0px, 0px);
+    }
+
+    .star--delay .star__content {
+        margin-top: 100px;
+        padding-left: 30px;
+    }
+    .star--delay p {
+        background: #fff; 
+        margin-bottom: 20px;
+        width: 200px;
+        transform: translate(-300px, 0px);
+        transition: all 0.5s;
+    }
+
+    .star--delay p:nth-child(2) { transition-delay: 0.2s; }
+    .star--delay p:nth-child(3) { transition-delay: 0.4s; }
+
+    .star--delay:hover p {
+        transform: translate(0px, 0px);
+    }
+
+</style>
+<body>
+
+
+    <div class="star star--border">
+
+        <div class="star__border star__border--vertical"></div>
+        <div class="star__border star__border--horizontal"></div>
+
+    </div>
+
+    <hr>
+    
+    <div class="star star--rotate">
+        <div class="star__border"></div>
+    </div>
+
+    <hr>
+
+    <div class="star star--delay">
+
+        <div class="star__content">
+                <p>sadsadasd</p>
+                <p>sadsadasd</p>
+                <p>sadsadasd</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

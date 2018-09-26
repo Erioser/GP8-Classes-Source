@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transform</title>
+</head>
+<style>
+    .demo { width: 200px; height: 200px; background: red; margin:  100px auto; }
+
+    /* .demo { position: relative; top: 100px; }     */
+
+    /* .demo { transform: translate(100px, 50%); } */
+    /* .demo { transform: scale(0.2, 1); } */
+    .demo { 
+        /* transform-origin: 0 0 ; */
+        /* transform-origin: 50% 0 ; */
+        /* transform-origin:left bottom; */
+        transition: all 2s;
+    }
+
+    .demo:hover {
+        /* transform: rotate(30deg); */
+        /* transform: scale(2, 2); */
+        /* transform: skew(-30deg, -50deg); */
+        transform: scale(1.5, 1.5) rotate(360deg);
+    }
+
+</style>
+<body>
+    
+    <div class="demo">
+        Transform
+    </div>
+    <h1>Hello World</h1>
+</body>
+</html>
